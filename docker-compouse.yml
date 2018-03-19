@@ -1,0 +1,23 @@
+version: "2"
+services:
+  rabbitMQ:
+    image: frodenas/rabbitmq
+    environment:
+      - RABBITMQ_USERNAME=admin
+      - RABBITMQ_PASSWORD=admin
+    ports:
+      - "5699:5672"
+      - "15699:15672"
+  mySQL:
+    image: mysql/mysql-server
+    environment:
+      - MYSQL_DATABASE=testDB
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+  tomcat:
+    image: isavenok/tomcat8
+    ports:
+      - "8888:8080"
+      - "8009:8009"
